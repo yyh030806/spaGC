@@ -1,0 +1,4 @@
+include LICENSE README.md overview.png
+include environment.yml requirements.txt constraints.txt
+recursive-include notebooks *.ipynb *.patch
+prune analysis

@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=77,<81"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spagc"
+version = "0.1.0"
+description = "Spatial niche discovery, histology prediction and serial-section reconstruction"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "anndata",
+    "h5py",
+    "joblib",
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "scipy",
+    "torch",
+    "tqdm",
+]
+
+[project.optional-dependencies]
+spatial = ["cellcharter", "igraph", "leidenalg", "scanpy", "scvi-tools", "squidpy", "torch-geometric"]
+histology = ["matplotlib", "opencv-python", "openslide-python", "Pillow", "pyvips", "scanpy", "timm", "torchvision", "umap-learn"]
+reconstruction = ["Pillow", "plotly", "POT", "pyarrow", "pytorch-lightning", "pyvips", "timm", "torchdiffeq", "torchvision"]
+notebook = ["ipykernel", "jupyterlab"]
+registration = ["hnswlib", "networkx", "pygad", "seaborn", "squidpy"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["spagc*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["spagc"]

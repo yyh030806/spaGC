@@ -1,0 +1,9 @@
+name: spagc
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.10.18
+  - pip=26.1.1
+  - libvips=8.17.3
+  - openslide=4.0.0
